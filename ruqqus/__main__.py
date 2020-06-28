@@ -139,8 +139,8 @@ def before_request():
     if not session.get("session_id"):
         session["session_id"]=secrets.token_hex(16)
 
-    #db.rollback()
-    #g.db.begin(subtransactions=True)
+    db.rollback()
+    g.db.begin(subtransactions=True)
 
 
 def log_event(name, link):
